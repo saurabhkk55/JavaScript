@@ -56,53 +56,53 @@ const anotherStr = "Hello, World!";
 // 1. toUpperCase():
 // Converts the string to uppercase and returns it as a new string.
 console.log("toUpperCase():", anotherStr.toUpperCase()); // Output: HELLO, WORLD!
-console.log("Original String:", str); // Original String:
+console.log("Original String:", str); // Original String: Hello, World!
 
 // 2. toLowerCase():
 // Converts the string to lowercase and returns it as a new string.
 console.log("toLowerCase():", anotherStr.toLowerCase()); // Output: hello, world!
-console.log("Original String:", str); // Original String:
+console.log("Original String:", str); // Original String: Hello, World!
 
 // 3. indexOf():
 // Returns the index of the first occurrence of a specified substring within the string.
 console.log("indexOf('World'):", anotherStr.indexOf('World')); // Output: indexOf('World'): 7
-console.log("Original String:", str); // Original String:
+console.log("Original String:", str); // Original String: Hello, World!
 
 // 4. slice():
 // Extracts a section of the string and returns it as a new string.
 console.log("slice(7):", anotherStr.slice(7)); // Output: slice(7): World!
-console.log("Original String:", str); // Original String:
+console.log("Original String:", str); // Original String: Hello, World!
 
 // 5. replace():
 // Replaces a specified substring with another substring and returns it as a new string.
 console.log("replace('World', 'Universe'):", anotherStr.replace('World', 'Universe')); // Output: replace('World', 'Universe'): Hello, Universe!
-console.log("Original String:", str); // Original String:
+console.log("Original String:", str); // Original String: Hello, World!
 
 // 6. split():
 // Splits a string into an array of substrings based on a specified separator.
 console.log("split(', '):", anotherStr.split(', ')); // Output: split(', '): [ 'Hello', 'World!' ]
-console.log("Original String:", str); // Original String:
+console.log("Original String:", str); // Original String: Hello, World!
 
 // 7. substring():
 // Returns a substring as a new string between two specified indices.
 console.log("substring(7, 12):", anotherStr.substring(7, 12)); // Output: substring(7, 12): World
-console.log("Original String:", str); // Original String:
+console.log("Original String:", str); // Original String: Hello, World!
 
 // 8. charAt():
 // Returns the character at a specified index (position) in the string and returns it as a new string.
 const idx = 7;
 console.log(`charAt(${idx}):`, str.charAt(idx)); // Output: charAt(7): W
-console.log("Original String:", str); // Original String:
+console.log("Original String:", str); // Original String: Hello, World!
 
 // 9. trim():
 // Removes whitespace from both ends of the string and returns it as a new string.
 const stringWithWhitespace = "   Hello, World!   ";
 console.log("trim():", stringWithWhitespace.trim()); // Output: trim(): Hello, World!
-console.log("Original String:", stringWithWhitespace); // Original String:
+console.log("Original String:", stringWithWhitespace); // Original String:   Hello, World!   
 
 // 10. concat():
 // Concatenates two or more strings and returns a new string and returns it as a new string.
 const first_Name = "John";
 const last_Name = "Doe";
 console.log("concat():", first_Name.concat(' ', last_Name)); // Output: concat(): John Doe
-console.log(`Original String: ${first_Name} & ${last_Name}`); // Original String:
+console.log(`Original String: ${first_Name} & ${last_Name}`); // Original String: John & Doe
