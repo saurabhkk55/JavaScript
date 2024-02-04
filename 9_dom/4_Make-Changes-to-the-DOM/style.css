@@ -1,0 +1,22 @@
+
+
+#entriesContainer {
+    display: inline-block;
+    background-color: rgba(6, 121, 98, 0.544);
+    margin: 10px;
+}
+
+body {
+    background-color: rgb(81, 126, 137);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.newEntryClass {
+    padding: 10px 10px;
+    border-bottom: 2px solid black;
+    text-align: center;
+}
+
+#applyChangesBtn {
+    background-color: lightgreen;
+}

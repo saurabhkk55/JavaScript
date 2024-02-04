@@ -1,7 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO-APP</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
 <body>
-    <span><input type="text"></span>
+    <h2>TODO APPLICATION</h2>
+    <span id="textBox"><input type="text" placeholder="Enter text"></span>
     <span>
         <select id="actionSelect">
             <option value="create">CREATE</option>
@@ -10,10 +17,11 @@
         </select>
     </span>
     <span><button id="applyChangesBtn">Apply changes</button></span>
-
+    <div></div>
     <div id="entriesContainer">
         <!-- Entries will be appended here -->
     </div>
+    
 
     <script src="./script.js"></script>
 </body>
