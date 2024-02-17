@@ -1,0 +1,11 @@
+#masterStyle {
+    background-color: orange;
+    /* width: 300px;
+    height: 200px; */
+}
+
+#workerStyle {
+    background-color: green;
+    /* width: 200px; */
+    /* height: 50px; */
+}
