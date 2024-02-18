@@ -55,7 +55,9 @@ console.log(square(4)); // Output: 16
 // 7. Arrow function with implicit return
 // Syntax: const functionName = parameter => expression;
 // Usage: Define a function that calculates the cube of a number with implicit return.
-const cube = num => num * num * num;
+// Function which is only of 1 line and return keyword we don't use here.
+// If () then no return keyword is reqd. If {} only the return keyword is reqd.
+const cube = num => num * num * num; // const cube = num => (num * num * num)
 console.log(cube(3)); // Output: 27
 
 // 8. Arrow function with no parameters
@@ -69,6 +71,7 @@ console.log(sayHello()); // Output: Hello!
 // 9. IIFE with function expression
 // Syntax: (function() { })()
 // Usage: Execute a function immediately after its definition.
+// Syntax: ()() here first () is to define the function and () is to exeute the function
 (function() {
     console.log("IIFE executed");
 })();
@@ -79,6 +82,10 @@ console.log(sayHello()); // Output: Hello!
 (() => {
     console.log("IIFE with arrow function executed");
 })();
+
+((name) => {
+    console.log("IIFE with arrow function executed", name);
+})("saurabh");
 
 // 11. Function with Rest Parameters
 // Syntax: function functionName(...parameters) { }

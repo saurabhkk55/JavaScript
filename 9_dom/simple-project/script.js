@@ -6,8 +6,6 @@ console.log(master.textContent);
 
 master.addEventListener("click", function() {
     console.log(master);
-    // master.textContent = "Master: Hi ALL!";
-    // master.id = "masterStyle";
     let worker1 = document.createElement("div");
     worker1.textContent = "Worker: Hi, I'am inside the master!";
     worker1.id = "workerStyle";
