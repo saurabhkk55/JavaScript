@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Phases</title>
+    <style>
+        #outer { border: 2px solid red; padding: 20px; }
+        #inner { border: 2px solid blue; padding: 20px; }
+    </style>
+</head>
+<body>
+
+<div id="outer">
+    <div id="inner">
+        <button id="target" type="button">Click Me!</button>
+    </div>
+</div>
+
+<script>
+    function capturingPhase() {
+        console.log("Capturing Phase: Event starts from the outermost element and moves towards the target element.");
+    }
+
+    function targetPhase() {
+        console.log("Target Phase: Event reaches the target element.");
+    }
+
+    function bubblingPhase() {
+        console.log("Bubbling Phase: Event bubbles up from the target element to the outermost element.");
+    }
+
+    document.getElementById('outer').addEventListener('click', capturingPhase, true);
+    // If you click on the div with id "outer", the following output will be logged to the console:
+
+    // Capturing Phase: Event starts from the outermost element and moves towards the target element.
+
+    // This is because the event listener attached to the outer div (`#outer`) is set to listen during the capturing phase. 
+    // Therefore, when you click on the outer div, the event starts from the outermost element and moves towards the target element. 
+    // There are no event listeners for the bubbling phase or for the target phase when clicking on the outer div, so those phases won't be logged.
+
+    document.getElementById('inner').addEventListener('click', targetPhase);
+    // If you click on the div with id "inner", the following output will be logged to the console:
+
+    // Capturing Phase: Event starts from the outermost element and moves towards the target element.
+    // Target Phase: Event reaches the target element.
+
+    // This is because:
+    // 1. The event starts in the capturing phase, as you have set the event listener for the outermost div (`#outer`) with the third argument `true`, which indicates capturing phase.
+    // 2. Then, it moves to the target phase, as the event listener for the inner div (`#inner`) is in the default bubbling phase.
+
+    // There won't be any output related to the bubbling phase because no event listeners are attached to elements that could capture events bubbling up from the target element.
+
+    document.getElementById('target').addEventListener('click', bubblingPhase);
+    // When you click on the "Click Me!" button, the following output will be logged to the console:
+
+    // Capturing Phase: Event starts from the outermost element and moves towards the target element.
+    // Target Phase: Event reaches the target element.
+    // Bubbling Phase: Event bubbles up from the target element to the outermost element.
+
+    // This is because:
+    // 1. The event starts in the capturing phase, as you have set the event listener for the outermost div (`#outer`) with the third argument `true`, which indicates capturing phase.
+    // 2. Then, it moves to the target phase, as the event listener for the inner div (`#inner`) is in the default bubbling phase.
+    // 3. Finally, it bubbles up to the outermost div again in the bubbling phase due to the event listener on the button (`#target`).
+</script>
+
+</body>
+</html>

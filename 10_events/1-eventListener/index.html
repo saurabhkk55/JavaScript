@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>htnml Events </title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+    </div>
+</body>
+<script>
+    document.getElementById('images').addEventListener('click', function(e){
+        console.log("clicked inside the ul");
+    }, false)
+
+    document.getElementById('owl').addEventListener('click', function(e){
+        // stopPropagation() method is used to prevent further propagation of the current event in the capturing and bubbling phases. 
+        // When this method is called within an event handler, it stops the event from reaching any other event listeners further along in the DOM.
+        // e.stopPropagation(); // Stops further propagation of the click event
+        console.log("owl clicked");
+    }, false)
+</script>
+</html>
+
+
+
+
+<!-- In the provided HTML code, `false` is used as the third parameter in the `addEventListener` method calls:
+
+In the context of `addEventListener`, the `false` parameter is the value for the `useCapture` parameter, which is a boolean value. 
+This parameter determines whether the event should be executed in the capturing phase or the bubbling phase of the event flow.
+
+The event flow in JavaScript DOM consists of three phases:
+
+1. Capturing phase: The event starts from the outermost element and moves towards the target element.
+2. Target phase: The event reaches the target element.
+3. Bubbling phase: The event bubbles up from the target element to the outermost element.
+
+When `useCapture` is set to `false` (which is the default behavior if `useCapture` is not specified), 
+the event listener is set to listen for events during the bubbling phase. 
+This means that the event will be handled as it bubbles up from the target element to the outermost element.
+
+///////////////////////////////////////////////
+
+When you click on the `<ul>` element with the id "images", 
+it not only triggers its own event listener but also triggers event listeners of its parent elements due to event bubbling. 
+
+1. When you click on the list of images (`<ul>` element), the click event doesn't just stop there. It travels up through its parent elements, like a bubble rising in water.
+
+2. In this case, there's an event listener set on the `<ul>` element itself, listening for click events.
+
+3. So, when you click on the `<ul>` element, it first triggers its own event listener, logging "clicked inside the ul".
+
+4. Then, because of bubbling, the event continues up to its parent elements. If there were any event listeners set on those parent elements, 
+they would be triggered too. However, in this specific code, there aren't any listeners on the parent elements, so nothing else happens.
+
+In short, clicking on the `<ul>` triggers its event listener and then bubbles up, potentially triggering event listeners on its parent elements, 
+but in this case, there are no additional listeners to trigger.
+
+///////////////////////////////////////////////
+
+1. When you specifically click on the image of the owl, two things happen:
+    - First, the event travels up from the image to its parent elements.
+    - Second, it triggers any event listeners waiting for this event along the way.
+
+2. There are two event listeners set up:
+    - One is waiting for clicks on the whole list of images (`<ul>` element).
+    - The other is specifically for the owl image.
+
+3. So, when you click on the owl image:
+    - It triggers the event listener for the owl image first, logging "owl clicked".
+    - Then, as the event continues bubbling up, it triggers the event listener for the `<ul>` element, logging "clicked inside the ul".
+
+Again, clicking on the owl triggers actions both for the owl image itself and for the whole list of images it belongs to. -->
