@@ -45,3 +45,48 @@ console.log(chai instanceof User); // Output: true - chai is also an instance of
 
 Inheritance in classes allows for the creation of a hierarchy where `child classes` (like Teacher) inherit `properties` and `methods` from `parent classes` (like User). This promotes code reusability and helps in organizing code logically. When an instance of a child class is created, it can access both its own methods/properties and those inherited from the parent class. The `super()` keyword is used to call the constructor of the parent class. 
 > Remember that instances of a child class are also instances of the parent class due to inheritance.
+
+# Equivalent `prototype-based` code
+
+```js
+// User Constructor Function
+function User(username) {
+    this.username = username;
+}
+
+// Method to log user
+User.prototype.logMe = function() {
+    console.log(`User: ${this.username}`);
+};
+
+// Teacher Constructor Function extending User
+function Teacher(username, email, password) {
+    User.call(this, username);
+    this.email = email;
+    this.password = password;
+}
+
+// Setting up the prototype chain
+// By assigning Object.create(User.prototype) to Teacher.prototype, we're effectively making Teacher.prototype inherit from User.prototype. 
+// This means that any properties or methods added to User.prototype will be accessible to instances of both the User and Teacher constructor functions.
+Teacher.prototype = Object.create(User.prototype);
+Teacher.prototype.constructor = Teacher;
+
+// Method to add course
+Teacher.prototype.addCourse = function() {
+    console.log(`Course added by Teacher: ${this.username}`);
+};
+
+// Creating instances
+const chai = new Teacher("chai", "chai@teacher.com", "123");
+chai.logMe(); // Output: User: chai
+chai.addCourse(); // Output: Course added by Teacher chai
+
+const masalaChai = new User("masalaChai");
+masalaChai.logMe(); // Output: User: masalaChai
+// masalaChai.addCourse(); // This will throw an error as addCourse is not a method of the User class.
+
+console.log(Teacher instanceof User); // false
+console.log(chai instanceof Teacher); // true
+console.log(chai instanceof User); // true
+```

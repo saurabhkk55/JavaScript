@@ -26,7 +26,7 @@ class Teacher extends User{
 
 // Create an instance of Teacher with username 'chai', email 'chai@teacher.com', and password '123'.
 const chai = new Teacher("chai", "chai@teacher.com", "123");
-// chai.logMe(); // Output: User: chai
+chai.logMe(); // Output: User: chai
 chai.addCourse(); // Output: Course added by Teacher chai
 
 // Create an instance of User with username 'masalaChai'.
@@ -38,3 +38,48 @@ masalaChai.logMe(); // Output: User: masalaChai
 console.log(Teacher instanceof User); // Output: false - Teacher is not an instance of User
 console.log(chai instanceof Teacher); // Output: true - chai is an instance of Teacher
 console.log(chai instanceof User); // Output: true - chai is also an instance of User
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// // Equivalent prototype-based code
+
+// // User Constructor Function
+// function User(username) {
+//     this.username = username;
+// }
+
+// // Method to log user
+// User.prototype.logMe = function() {
+//     console.log(`User: ${this.username}`);
+// };
+
+// // Teacher Constructor Function extending User
+// function Teacher(username, email, password) {
+//     User.call(this, username);
+//     this.email = email;
+//     this.password = password;
+// }
+
+// // Setting up the prototype chain
+// // By assigning Object.create(User.prototype) to Teacher.prototype, we're effectively making Teacher.prototype inherit from User.prototype. 
+// // This means that any properties or methods added to User.prototype will be accessible to instances of both the User and Teacher constructor functions.
+// Teacher.prototype = Object.create(User.prototype);
+// Teacher.prototype.constructor = Teacher;
+
+// // Method to add course
+// Teacher.prototype.addCourse = function() {
+//     console.log(`Course added by Teacher: ${this.username}`);
+// };
+
+// // Creating instances
+// const chai = new Teacher("chai", "chai@teacher.com", "123");
+// chai.logMe(); // Output: User: chai
+// chai.addCourse(); // Output: Course added by Teacher chai
+
+// const masalaChai = new User("masalaChai");
+// masalaChai.logMe(); // Output: User: masalaChai
+// // masalaChai.addCourse(); // This will throw an error as addCourse is not a method of the User class.
+
+// console.log(Teacher instanceof User); // false
+// console.log(chai instanceof Teacher); // true
+// console.log(chai instanceof User); // true
