@@ -1,4 +1,4 @@
-// >>>>> concepts of functions being objects in JavaScript, the prototype property of functions, and how properties can be added to function objects. <<<<<
+// >>>>> Concepts of functions being objects in JavaScript, the prototype property of functions, and how properties can be added to function objects. <<<<<
 
 // In JavaScript, functions are indeed objects. 
 // This is because in JavaScript, functions are first-class citizens, meaning they can be passed around and manipulated just like any other data type.
