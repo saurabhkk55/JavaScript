@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Closure</title>
+    <style>body{background-color: black;}</style>
+</head>
+<body>
+    <button id="orange">orange</button>
+    <button id="green">green</button>
+</body>
+<!-- <script>
+    function makeFunc() {
+        const name = "Mozilla";
+        
+        // Inner function 'displayName' is defined within the lexical scope of 'makeFunc'
+        function displayName() {
+            // 'displayName' has access to the 'name' variable declared in the outer function scope
+            console.log("Inner",name);
+        }
+        
+        console.log("Outer:",name);
+
+        // Returning the inner function 'displayName' from 'makeFunc'
+        return displayName;
+    }
+
+    // 'myFunc' now holds the reference to the inner function 'displayName' returned by 'makeFunc'
+    const myFunc = makeFunc();
+
+    // Executing 'myFunc' triggers the execution of 'displayName' which logs the value of 'name'
+    myFunc(); // Output: "Mozilla"
+</script> -->
+<script>
+    // document.getElementById("orange").onclick = function(){
+    //     document.body.style.backgroundColor = `orange`
+    // }
+    // document.getElementById("green").onclick = function(){
+    //     document.body.style.backgroundColor = `green`
+    // }
+
+    function clickHandler(color){
+        // document.body.style.backgroundColor = `${color}`
+
+        return function(){
+            document.body.style.backgroundColor = `${color}`
+        }
+    }
+
+    document.getElementById('orange').onclick = clickHandler("orange")
+    document.getElementById('green').onclick = clickHandler("green")
+</script>
+</html>
