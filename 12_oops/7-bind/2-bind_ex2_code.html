@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bind in JS</title>
+    <style>body{background-color: black;}</style>
+</head>
+<body>
+    <button id="myButton" type="button"></button>
+    <script>
+        // Original object with a method
+        const counter = {
+            count: 0,
+            increment: function() {
+            this.count++;
+            // console.log(`THIS: ${this}`);
+            console.log(`Count incremented to ${this.count}`);
+            }
+        };
+
+        // Button element in HTML
+        const button = document.getElementById('myButton');
+
+        // Event listener using the original method directly
+        button.addEventListener('click', counter.increment);
+        // Now, when the button is clicked, 'this' inside increment() will refer to the button element, not the counter object, causing an error
+
+        // Using bind to fix the 'this' reference
+        button.addEventListener('click', counter.increment.bind(counter));
+        // Now, when the button is clicked, 'this' inside increment() will always refer to the counter object, so the count will be correctly incremented
+    </script>
+</body>
+</html>
