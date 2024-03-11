@@ -67,6 +67,8 @@ const users = [
     },
 ];
 
+console.log(typeof users); // object
+console.log(typeof users[1]); // object
 // Logging the email address of the user at index 1
 console.log("Email of user at index 1:", users[1].email);
 
@@ -104,6 +106,8 @@ console.log("\n>>>>>>>>>>>>>>>>>>>>>>>>> --- <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n"
 //     {}
 // ]
 
+console.log("\n>>>>>>>>>>>>>>>>>>>>>>>>> --- <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
+
 /* Output:
 Tinder User Object: { id: '123abc', name: 'Sammy', isLoggedIn: false }
 Keys of Tinder User Object: [ 'id', 'name', 'isLoggedIn' ]
@@ -128,9 +132,12 @@ Updated obj1 after merging using Object.assign(): { '1': 'a', '2': 'b'
 
 >>>>>>>>>>>>>>>>>>>>>>>>> --- <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<        
 
+object
+object
 Email of user at index 1: b@gmail.com
 Course Instructor: hitesh
 Course Price: 999
 
+>>>>>>>>>>>>>>>>>>>>>>>>> --- <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< 
 >>>>>>>>>>>>>>>>>>>>>>>>> --- <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< 
 */

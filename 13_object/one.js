@@ -6,9 +6,9 @@
 // Defining a symbol for a unique key
 const uniqueKey = Symbol("unique key");
 
-// Creating a JavaScript user object
+// Creating a JsUser object
 const JsUser = {
-    name: "Hitesh",
+    name: "Saurabh",
     "full name": "Saurabh Kumar Kardam", // Accessing property with spaces requires bracket notation
     [uniqueKey]: "mykey1", // Using a symbol as a property key
     age: 18,
